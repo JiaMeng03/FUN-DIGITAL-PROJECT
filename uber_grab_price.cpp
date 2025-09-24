@@ -28,36 +28,37 @@ void displayHeader() {
     cout << "=======================================\n" << endl;
 }
 
-int main()
-displayHeader();
+int main() {
+    displayHeader();
 
-double distanceKm;
-    
-cout << "Enter distance in km: ";
+    double distanceKm;
+        
+    cout << "Enter distance in km: ";
 
-if (!(cin >> distanceKm)) {
-    cerr << "Invalid input. Please enter a numeric distance (e.g., 3 or 2.5)." << endl;
-    return 1;
+    if (!(cin >> distanceKm)) {
+        cerr << "Invalid input. Please enter a numeric distance (e.g., 3 or 2.5)." << endl;
+        return 1;
+    }
+
+    if (distanceKm < 0 || distanceKm == 0) {
+        cerr << "Distance cannot be negative or zero." << endl;
+        return 1;
+    }
+
+    double grabPrice = distanceKm * GRAB_PER_KM;
+    double uberPrice = distanceKm * UBER_PER_KM;
+
+    // Output
+    cout << "\n======== Total Fare ========" << endl;
+    cout << "GrabCar: RM " << formatCurrency(grabPrice) << endl;
+    cout << "Uber: RM " << formatCurrency(uberPrice) << endl;
+
+    if (grabPrice < uberPrice) {
+        cout << "\nGrabCar is cheaper by RM " << formatCurrency(uberPrice - grabPrice) << endl;
+    } else if (uberPrice < grabPrice) {
+        cout << "\nUber is cheaper by RM " << formatCurrency(grabPrice - uberPrice) << endl;
+    }
+
+    cout << "\nThank you for using the Ride Fare Calculator!" << endl;
+    return 0;
 }
-
-if (distanceKm < 0 || distanceKm == 0) {
-    cerr << "Distance cannot be negative or zero." << endl;
-    return 1;
-}
-
-double grabPrice = distanceKm * GRAB_PER_KM;
-double uberPrice = distanceKm * UBER_PER_KM;
-
-// Output
-cout << "\n======== Total Fare ========" << endl;
-cout << "GrabCar: RM " << formatCurrency(grabPrice) << endl;
-cout << "Uber: RM " << formatCurrency(uberPrice) << endl;
-
-if (grabPrice < uberPrice) {
-    cout << "\nGrabCar is cheaper by RM " << formatCurrency(uberPrice - grabPrice) << endl;
-} else if (uberPrice < grabPrice) {
-    cout << "\nUber is cheaper by RM " << formatCurrency(grabPrice - uberPrice) << endl;
-}
-
-cout << "\nThank you for using the Ride Fare Calculator!" << endl;
-return 0;
