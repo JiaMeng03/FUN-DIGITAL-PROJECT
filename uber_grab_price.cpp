@@ -44,3 +44,6 @@ if (distanceKm < 0 || distanceKm == 0) {
     cerr << "Distance cannot be negative or zero." << endl;
     return 1;
 }
+
+double grabPrice = distanceKm * GRAB_PER_KM;
+double uberPrice = distanceKm * UBER_PER_KM;
