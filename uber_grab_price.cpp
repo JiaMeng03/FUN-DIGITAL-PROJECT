@@ -20,3 +20,10 @@ string formatCurrency(double amount) {
     if (!s.empty() && s.back() == '.') s.pop_back();
     return s;
 }
+
+// Display header
+void displayHeader() {
+    cout << "\n======== Ride Fare Calculator =========" << endl;
+    cout << "|   Compare GrabCar and Uber fares    |" << endl;
+    cout << "=======================================\n" << endl;
+}
