@@ -27,3 +27,20 @@ void displayHeader() {
     cout << "|   Compare GrabCar and Uber fares    |" << endl;
     cout << "=======================================\n" << endl;
 }
+
+int main()
+displayHeader();
+
+double distanceKm;
+    
+cout << "Enter distance in km: ";
+
+if (!(cin >> distanceKm)) {
+    cerr << "Invalid input. Please enter a numeric distance (e.g., 3 or 2.5)." << endl;
+    return 1;
+}
+
+if (distanceKm < 0 || distanceKm == 0) {
+    cerr << "Distance cannot be negative or zero." << endl;
+    return 1;
+}
